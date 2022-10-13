@@ -39,7 +39,7 @@ namespace SistemaEstacionamento.Models
 
                 veiculos.Remove(placa);
 
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}.");
+                Console.WriteLine($"O veículo " + placa.ToUpper() + $" foi removido e o preço total foi de: R$ {valorTotal}.");
             }
             else
             {
@@ -49,10 +49,17 @@ namespace SistemaEstacionamento.Models
 
         public void ListarVeiculos()
         {
-            Console.WriteLine("Listando os veiculos.. \t");
-            foreach (String listaDeVeiculos in veiculos)
+            if (veiculos.Any())
             {
-                Console.WriteLine(listaDeVeiculos);
+                Console.WriteLine("Os veículos estacionados são:");
+                foreach (String listaDeVeiculos in veiculos)
+                {
+                    Console.WriteLine(listaDeVeiculos + "\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Não há veiculos estacionados.");
             }
         }
 
